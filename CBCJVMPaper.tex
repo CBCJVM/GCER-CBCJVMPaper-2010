@@ -6,6 +6,7 @@
 
 \usepackage{hyperref}
 \newcommand{\urlfootnote}[1]{\footnote{\url{#1}}}
+\newcommand{\code}[1]{\par\texttt{#1}\par}
 
 \title{CBCJVM --- Applications of the Java Virtual Machine with Robotics}
 \author{Braden McDorman (braden@betabot.org)\\
@@ -17,19 +18,27 @@ Jonathan Frias (freakinjonathan@gmail.com)}
 
 \maketitle
 
-\section{Thesis}
+\section{Concept}
+
+\subsection{Thesis}
 
 The Botball tournament requires programmers to rapidly develop and prototype programs. However a disconnect is visible between the language and the tools provided and the goals of the game. Although very fast, C is generally considered to be a low-level language, making it what many of us believe to be the wrong tool for the job. The result is buggy programs, cluttered code, and a lack of flexibility in user libraries. The CBCJVM is the product of the realization that although slower, interpreted Object-Oriented programming languages are better for the type of prototyping used in the Botball competition. As Kipr has stated many times, it is highly unlikely that the CBC will ever be officially changed from C \urlfootnote{http://community.botball.org/forum/miscellaneous/suggestions-and-bugs/can-there-be-kiss-c-rather-kiss-c}. CBCJVM shares many of the same goals as Nease's CBCLua, but it is aimed at a wider audience, with monthly releases, detailed documentation, and support for more than just one language. CBCJVM is not just a port of JVM to the CBC, but it encompasses a group of libraries and tools to compete with (and often times surpass) those offered by KISS-C.
 
 
 
-\section{Languages}
+\subsection{License}
+
+CBCJVM is licensed under the GPLv3\urlfootnote{http://gplv3.fsf.org/}. This license requires that you distribute the source code of any modifications of CBCJVM along with any binary version of it that you distribute. We, the authors of CBCJVM, believe this constitutes a fair and just agreement. You are also permitted to use CBCJVM under any future version of the GPL that you wish.
+
+
+
+\subsection{Languages}
 
 The CBCJVM originally went under the name ``CBCJava", but as the project grew, it was soon realized that using the JVM only for Java was a waste. The Java Virtual Machine has become a de facto standard of virtual machines, and almost every interpreted language imaginable has some port to the JVM, and these languages typically have support for interfacing with Java libraries. The JVM is fast, taking advantage of Just-In-Time compilation and various other optimizations, making it's performance somewhat comparable to C++ and C (but performance is still in no way better than a native language). CBCJVM has been used with JavaScript (via Mozilla Rhino) and Scala (which compiles directly to Java byte-code), but it can be used with many other languages such as Ruby, Python, Lua, and even LOLCODE. While it cannot match the performance of native interpreters for these languages, such as WebKit (JavaScript), CPython, or the standard Lua interpreter, it offers a fast way for these teams to get up and running with these high level languages. What's more, is that CBCJVM already includes a set of powerful libraries that can be used in conjunction with these languages to help teams that would otherwise be on their own with a language. (Not everyone can port and develop libraries in a language entirely by themselves and have it work well... *cough* Nease, CBCLua *cough*)
 
 
 
-\section{Libraries}
+\subsection{Libraries}
 
 Rather than being a straight port of the JVM to the CBC, CBCJVM includes libraries developed on top of the JVM. These libraries allow access to the KISS-C libraries via the Java Native Interface (JNI), allowing you to control motors, read sensors, and so on. Although bugs occasionally show up in this low-level communication layer, we believe that our implementation is complete and stable enough to be used on a day-to-day basis. These low level functions are available in the \texttt{cbccore.low} package.
 
@@ -43,5 +52,47 @@ On top of this, we have classes that make the low level functions more object-or
 
 \textit{We try our best, but as a (currently) small development team, there is the possibility that we have overlooked some functions in our porting efforts. However, the best option would be to fork\urlfootnote{http://help.github.com/forking} our github repository\urlfootnote{http://github.com/catron/CBCJVM}, add that functionality yourself, and submit a pull request\urlfootnote{http://github.com/guides/pull-requests}, or report it in our github issue tracker \urlfootnote{http://github.com/catron/CBCJVM/issues} and wait for a fix.}
 \end{itemize}
+
+\pagebreak
+\section{Implementation}
+
+\subsection{Setup}
+
+\subsubsection{Background Information}
+
+Currently, the only supported platform is Ubuntu Linux. The instructions are untested with other distros, but they should work with slight modifications (eg.\ \texttt{yum} on RedHat/CentOS/Fedora instead of \texttt{apt-get}, and equivalent package names). On MacOS X Java 6 is poorly supported, and may or may not run on your machine\urlfootnote{http://java.dzone.com/news/java-6-mac-worsest-release-eve}. You might be better off trying to modify CBCJVM to work under Java 5 or using a virtual machine to run Ubuntu on top of your machine for builds (we recommend the free VirtualBox\urlfootnote{http://www.virtualbox.org/}). On Windows, everything should work, except for the few bash-based build scripts (the build process is mainly Ant and Maven based). Windows support is a priority, and should be an easy project for anyone who wishes to take on the task.
+
+\textbf{Warning: } Build instructions may change over time. Therefore, it is always a good idea to consult the CBCJVM wiki\urlfootnote{http://wiki.github.com/catron/CBCJVM/installsetup} for the latest information.
+
+\subsubsection{Ubuntu Setup}
+
+All these commands are to be executed in a bash (terminal) environment. On a fresh Ubuntu install, that would be found under the top left ``Applications" menu, ``Accessories", ``Terminal". If a command asks for your password, it is referring to your root (administrative) password. If you have no idea what this means, please contact your system administrator.
+\begin{enumerate}
+\item Check and see if you have a copy of JDK 6 by running:
+      \code{\$ javac -version}
+      You should see something like:
+      \code{\$ javac 1.6.0{\_}18}
+      If it gives a version prior to 1.6.x{\_}x, update your system. If it complain that javac is not found, run
+      \code{\$ sudo apt-get install default-jdk}
+\item Now, install the additional dependencies:
+      \code{\$ sudo apt-get install ant git-core maven2}
+      If you already have one of those pieces of software, you can still run the command without fear. Aptitude won't attempt to reinstall the software.
+\item Navigate into the directory you want the repository folder to be downloaded to:
+      \code{\$ cd "/directory/on/drive"}
+      Pull (download) a copy of CBCJVM:\par
+      \begin{itemize}
+          \item Download the latest version (possibly unstable):
+                \code{\$ git clone git://github.com/catron/CBCJVM.git}
+          \item Download a specific (``stable") version:
+                \code{\$ git clone git://github.com/catron/CBCJVM.git \\
+                      \$ git tag -l \\
+                      \$ git checkout 10.6}
+                (\texttt{git tag -l} is optional, it will list all available versions. Replace `10.6' with whatever version number you desire.)
+      \end{itemize}
+      If you are unsure as to what version you should download, it is recommended that you consult someone on the Botball community chat\urlfootnote{http://community.botball.org/irc}.
+\item Compile CBCJVM:
+      \code{\$ sh BuildEverything.sh}
+\item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
+\end{enumerate}
 
 \end{document}
