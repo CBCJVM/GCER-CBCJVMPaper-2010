@@ -18,12 +18,30 @@ Jonathan Frias (freakinjonathan@gmail.com)}
 \maketitle
 
 \section{Thesis}
-The Botball tournament requires programmers to rapidly develop and prototype programs. However a disconnect is visible between the language and the tools provided and the goals of the game. Although very fast, C is generally considered to be a low-level language, making it what many of us believe to be the wrong tool for the job. The result is buggy programs, cluttered code, and a lack of flexibility in user libraries. The CBCJVM is the product of the realization that although slower, interpreted Object-Oriented programming languages are better for the type of prototyping used in the Botball competition. As Kipr has stated many times, it is highly unlikely that the CBC will ever be officially changed from C \urlfootnote{http://community.botball.org/forum/miscellaneous/suggestions-and-bugs/can-there-be-kiss-c-rather-kiss-c}. CBCJVM shares many of the same goals as Nease's CBCLua, but it is aimed at a wider audience, with monthly releases, detailed documentation, and support for more than just one language.
+
+The Botball tournament requires programmers to rapidly develop and prototype programs. However a disconnect is visible between the language and the tools provided and the goals of the game. Although very fast, C is generally considered to be a low-level language, making it what many of us believe to be the wrong tool for the job. The result is buggy programs, cluttered code, and a lack of flexibility in user libraries. The CBCJVM is the product of the realization that although slower, interpreted Object-Oriented programming languages are better for the type of prototyping used in the Botball competition. As Kipr has stated many times, it is highly unlikely that the CBC will ever be officially changed from C \urlfootnote{http://community.botball.org/forum/miscellaneous/suggestions-and-bugs/can-there-be-kiss-c-rather-kiss-c}. CBCJVM shares many of the same goals as Nease's CBCLua, but it is aimed at a wider audience, with monthly releases, detailed documentation, and support for more than just one language. CBCJVM is not just a port of JVM to the CBC, but it encompasses a group of libraries and tools to compete with (and often times surpass) those offered by KISS-C.
+
+
 
 \section{Languages}
+
 The CBCJVM originally went under the name ``CBCJava", but as the project grew, it was soon realized that using the JVM only for Java was a waste. The Java Virtual Machine has become a de facto standard of virtual machines, and almost every interpreted language imaginable has some port to the JVM, and these languages typically have support for interfacing with Java libraries. The JVM is fast, taking advantage of Just-In-Time compilation and various other optimizations, making it's performance somewhat comparable to C++ and C (but performance is still in no way better than a native language). CBCJVM has been used with JavaScript (via Mozilla Rhino) and Scala (which compiles directly to Java byte-code), but it can be used with many other languages such as Ruby, Python, Lua, and even LOLCODE. While it cannot match the performance of native interpreters for these languages, such as WebKit (JavaScript), CPython, or the standard Lua interpreter, it offers a fast way for these teams to get up and running with these high level languages. What's more, is that CBCJVM already includes a set of powerful libraries that can be used in conjunction with these languages to help teams that would otherwise be on their own with a language. (Not everyone can port and develop libraries in a language entirely by themselves and have it work well... *cough* Nease, CBCLua *cough*)
 
-\section{Access to the Kiss-C Libraries}
-Rather than being a straight port of the JVM to the CBC, 
+
+
+\section{Libraries}
+
+Rather than being a straight port of the JVM to the CBC, CBCJVM includes libraries developed on top of the JVM. These libraries allow access to the KISS-C libraries via the Java Native Interface (JNI), allowing you to control motors, read sensors, and so on. Although bugs occasionally show up in this low-level communication layer, we believe that our implementation is complete and stable enough to be used on a day-to-day basis. These low level functions are available in the \texttt{cbccore.low} package.
+
+On top of this, we have classes that make the low level functions more object-oriented, and use camelCase for function names, rather than KISS-C's underscore{\_}naming{\_}system. The majority of CBCJVM's classes use these camelCased classes, and so should you. That said, All simulation happens in this \texttt{cbccore.low} package, and thus there is not loss in functionality by using the \texttt{cbccore.low} package. There exist two obvious reasons for the use of the \texttt{cbccore.low} package in your own code:
+\begin{itemize}
+\item Ease of porting from KISS-C code.
+
+\textit{Although the best option would be to port your code to CBCJVM utilizing the new APIs, in an object-oriented fashion, the \textit{cbccore.low} package can be used to do a quick ad-hoc port of code, due to it's similarities to the KISS-C's API.}
+
+\item The use of some feature where no high-level, camelCased class exists to handle it yet.
+
+\textit{We try our best, but as a (currently) small development team, there is the possibility that we have overlooked some functions in our porting efforts. However, the best option would be to fork\urlfootnote{http://help.github.com/forking} our github repository\urlfootnote{http://github.com/catron/CBCJVM}, add that functionality yourself, and submit a pull request\urlfootnote{http://github.com/guides/pull-requests}, or report it in our github issue tracker \urlfootnote{http://github.com/catron/CBCJVM/issues} and wait for a fix.}
+\end{itemize}
 
 \end{document}
