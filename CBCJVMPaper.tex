@@ -66,8 +66,11 @@ Currently, the only supported platform is Ubuntu Linux. The instructions are unt
 
 \subsubsection{Ubuntu Setup}
 
-All these commands are to be executed in a bash (terminal) environment. On a fresh Ubuntu install, that would be found under the top left ``Applications" menu, ``Accessories", ``Terminal". If a command asks for your password, it is referring to your root (administrative) password. If you have no idea what this means, please contact your system administrator.
+All of these commands, unless otherwise specified, are to be executed in a bash (terminal) environment. On a fresh Ubuntu install, that would be found under the top left ``Applications" menu, ``Accessories", ``Terminal". If a command asks for your password, it is referring to your root (administrative) password. If you have no idea what this means, please contact your system administrator.
 \begin{enumerate}
+\item Open the ``Software Sources" application by going to the ``System" menu at the top left of your screen, ``Administration", ``Software Sources"
+\item Ensure the box ``Community-maintained Open Source software (universe)" is checked, if not, check it.
+\item Close the window. If you are prompted to update your package list, click the ``Reload" button.
 \item Check and see if you have a copy of JDK 6 by running:
       \code{\$ javac -version}
       You should see something like:
@@ -82,9 +85,11 @@ All these commands are to be executed in a bash (terminal) environment. On a fre
       Pull (download) a copy of CBCJVM:\par
       \begin{itemize}
           \item Download the latest version (possibly unstable):
-                \code{\$ git clone git://github.com/catron/CBCJVM.git}
+                \code{\$ git clone git://github.com/catron/CBCJVM.git \\
+                      \$ cd CBCJVM}
           \item Download a specific (``stable") version:
                 \code{\$ git clone git://github.com/catron/CBCJVM.git \\
+                      \$ cd CBCJVM \\
                       \$ git tag -l \\
                       \$ git checkout 10.6}
                 (\texttt{git tag -l} is optional, it will list all available versions. Replace `10.6' with whatever version number you desire.)
