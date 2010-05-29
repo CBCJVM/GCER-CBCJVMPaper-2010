@@ -2,6 +2,7 @@
 
 \documentclass[10pt,letterpaper]{article}
 
+\usepackage[pdftex]{graphicx}
 %\usepackage{fullpage} % reduces margins if uncommented
 
 \usepackage{hyperref}
@@ -11,6 +12,7 @@
 \title{CBCJVM --- Applications of the Java Virtual Machine with Robotics}
 \author{Braden McDorman (braden@betabot.org)\\
 Benjamin Woodruff (odetopi.e@gmail.com)\\
+Akshay Joshi (me@akshayjoshi.com)\\
 Jonathan Frias (freakinjonathan@gmail.com)}
 %we should clean up the way the author list is formated
 
@@ -99,5 +101,18 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
       \code{\$ sh BuildEverything.sh}
 \item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
 \end{enumerate}
+
+
+
+\subsection{Finding Documentation with JavaDoc}
+
+After running the build script, a series of HTML pages will be generated in \texttt{CBCJVM/cbc/CBCJVM/doc}. You can open the file \texttt{index.html} from that directory with your favorite web-browser. This documentation is automatically generated from the CBCJVM source code, and is rebuilt with each execution of the build script.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{javadocs.png}
+\caption{The CBCJVM JavaDocs. The top left frame contains CBCJVM specific packages. The bottom left frame contains CBCJVM specific classes. The large frame is used to display information about the currently selected package or class.}
+\end{figure}
+
+For regular users of Java, this should look familiar. That's because official JavaSE/ME/EE documentation is built using the same tool, JavaDoc. This generated documentation can be found on Oracle's website\urlfootnote{http://java.sun.com/javase/6/docs/api}. All of the classes and methods found there should be available on the CBC, with the notable exception of AWT/Swing (the packages are actually there, but the CBC lacks a windowing server, making them useless), and a few other minor features not yet available in JamVM/GNU-Classpath (such as \texttt{System.nanoTime()}).
 
 \end{document}
