@@ -4,6 +4,7 @@
 
 \usepackage[pdftex]{graphicx}
 \usepackage{float}
+\usepackage{ulem}
 %\usepackage{fullpage} % reduces margins if uncommented
 
 \usepackage{hyperref}
@@ -130,7 +131,7 @@ A command-line based version the network download tool is available. This tool i
 
 It is strongly recommended you use CBCJVM on a POSIX compliant operating system such as Linux or Mac OS X. On Windows, everything should work, except for the few bash-based build scripts (the build process is mainly Ant and Maven based). Complete Windows support is a priority, and should be an easy project for anyone who wishes to take on the task.
 
-\textbf{Warning: } Build instructions may change over time. Therefore, it is always a good idea to consult the CBCJVM wiki\urlfootnote{http://wiki.github.com/catron/CBCJVM/installsetup} for the latest information.
+\textbf{Warning:} Build instructions may change over time. Therefore, it is always a good idea to consult the CBCJVM wiki\urlfootnote{http://wiki.github.com/catron/CBCJVM/installsetup} for the latest information.
 
 \subsection{Ubuntu Setup}
 
@@ -148,9 +149,10 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
 \item Now, install the additional dependencies:
       \code{\$ sudo apt-get install ant git-core maven2}
       If you already have one of those pieces of software, you can still run the command without fear. Aptitude won't attempt to reinstall the software.
-\item Navigate into the directory you want the repository folder to be downloaded to:
-      \code{\$ cd "/directory/on/drive"}
-      Pull (download) a copy of CBCJVM:\par
+\item Navigate into the directory you want the repository folder to be downloaded to, making a new one if necessary; Eg:
+      \code{\$ mkdir "$\mathtt{\sim}$/myFolder"\\
+            \$ cd "$\mathtt{\sim}$/myFolder"}
+\item Pull (download) a copy of CBCJVM:\par
       \begin{itemize}
           \item Download the latest version (possibly unstable):
                 \code{\$ git clone git://github.com/catron/CBCJVM.git \\
@@ -174,13 +176,14 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
 
 All of these commands, unless otherwise specified, are to be executed in a bash (terminal) environment. The default Mac OS X terminal can be found in your ``Applications" folder, ``Utilities", ``Terminal". These steps should work on any version of OS X, but we can only verify them on on Snow Leopard (10.6).
 \begin{enumerate}
-\item If you haven't already\footnote{If you have to folder ``Developer" in the main (root) directory of your drive, this probably means you already installed the Apple Developer Tools}, download and install the latest version of the Apple Developer Tools (XCode et al)\urlfootnote{http://developer.apple.com/technologies/xcode.html} available for your system. Please note that you do not need the ``iPhone" version, although it will work. It simply contains more packages and is larger than the ``Mac" specific version.
+\item If you haven't already\footnote{If you have to folder ``Developer" in the ROOT of your drive, this probably means you already installed the Apple Developer Tools}, download and install the latest version of the Apple Developer Tools (XCode et al)\urlfootnote{http://developer.apple.com/technologies/xcode.html} available for your system. Please note that you do not need the ``iPhone" version, although it will work. It simply contains more packages and is larger than the ``Mac" specific version.
 \item If you haven't already, download and install MacPorts\urlfootnote{http://www.macports.org/install.php} to follow the steps provided there.
 \item Install required tools for building CBCJVM
       \code{\$ sudo port install apache-ant git-core maven2}
-\item Navigate into the directory you want the repository folder to be downloaded to:
-      \code{\$ mkdir ~/Development; cd "~/Development"}
-      Pull (download) a copy of CBCJVM:\par
+\item Navigate into the directory you want the repository folder to be downloaded to, making a new one if necessary; Eg:
+      \code{\$ mkdir "$\mathtt{\sim}$/myFolder"\\
+            \$ cd "$\mathtt{\sim}$/myFolder"}
+\item Pull (download) a copy of CBCJVM:\par
       \begin{itemize}
           \item Download the latest version (possibly unstable):
                 \code{\$ git clone git://github.com/catron/CBCJVM.git \\
@@ -198,6 +201,31 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
 \item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
 \end{enumerate}
 
+
+
+\subsection{CBC Setup}
+
+After compiling CBCJVM on your computer, you must setup CBCJVM on all the CBCs you wish to use it on.
+
+\textbf{Warning:} This \uline{will only work on a CBCv2}. It \uline{will not} work on a CBCv1, and it \uline{may or may not} run on future versions of the CBC. Future versions of CBCJVM \uline{may or may not} be compatible with different devices. Backwards compatibility \uline{is not guaranteed}. \textbf{CBCJVM comes with no warranty}, and runs the \emph{slim} possibility, as do all CBC mods, of turning your CBC into a very expensive paperweight. \uline{Neither the CBCJVM developers nor KIPR are responsible for you bricking your own device, and it is at KIPR's sole discretion whether or not to fix it}. That said, CBCJVM avoids modifying certain portions of your CBC and attempts to remain as encapsulated as possible, making it improbable that it would damage your device.
+
+
+
+\subsubsection{Install}
+
+\begin{enumerate}
+\item Copy the contents of the \texttt{CBCJVM/installer/install} directory to the ROOT of a flash drive.
+\item Load \texttt{CBCJVMInstall.c} in the ``Programs" section of the CBC (cbcui).
+\item Run.
+\end{enumerate}
+
+
+
+\subsubsection{Cleanup}
+
+\begin{enumerate}
+\item Delete everything copied to the flash drive.
+\end{enumerate}
 
 
 \pagebreak
