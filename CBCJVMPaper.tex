@@ -164,12 +164,16 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
 \item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
 \end{enumerate}
 
+
+
 \subsubsection{Mac OS X Setup}
 
-You will need to download and install MacPorts\urlfootnote{http://www.macports.org/install.php} to follow the steps provided here. These steps should work on any version of OS X, but have only been tested on Snow Leopard (10.6).
+All of these commands, unless otherwise specified, are to be executed in a bash (terminal) environment. The default Mac OS X terminal can be found in your ``Applications" folder, ``Utilities", ``Terminal". These steps should work on any version of OS X, but we can only verify them on on Snow Leopard (10.6).
 \begin{enumerate}
+\item If you haven't already\footnote{If you have to folder ``Developer" in the main (root) directory of your drive, this probably means you already installed the Apple Developer Tools}, download and install the latest version of the Apple Developer Tools (XCode et al)\urlfootnote{http://developer.apple.com/technologies/xcode.html} available for your system. Please note that you do not need the ``iPhone" version, although it will work. It simply contains more packages and is larger than the ``Mac" specific version.
+\item If you haven't already, download and install MacPorts\urlfootnote{http://www.macports.org/install.php} to follow the steps provided there.
 \item Install required tools for building CBCJVM
-      \code{\$ sudo port install ant git-core maven2}
+      \code{\$ sudo port install apache-ant git-core maven2}
 \item Navigate into the directory you want the repository folder to be downloaded to:
       \code{\$ mkdir ~/Development; cd "~/Development"}
       Pull (download) a copy of CBCJVM:\par
