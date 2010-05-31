@@ -11,10 +11,10 @@
 \newcommand{\code}[1]{\par\texttt{#1}\par}
 
 \title{CBCJVM --- Applications of the Java Virtual Machine with Robotics}
-\author{Braden McDorman (beta or catron, braden@betabot.org)\\
-Benjamin Woodruff (pipeep, odetopi.e@gmail.com)\\
-Akshay Joshi (axyjo, me@akshayjoshi.com)\\
-Jonathan Frias (freakinjonathan, freakinjonathan@gmail.com)}
+\author{Braden McDorman (braden@betabot.org)\\
+Benjamin Woodruff (odetopi.e@gmail.com)\\
+Akshay Joshi (me@akshayjoshi.com)\\
+Jonathan Frias (freakinjonathan@gmail.com)}
 %we should clean up the way the author list is formated
 
 \begin{document}
@@ -79,7 +79,7 @@ As mentioned, our simulator replaces classes loaded by \texttt{cbccore.Device} a
 
 \subsection{Frame Buffer Access}
 
-One of the more unique features of CBCJVM is the ability to draw to the CBC's $320 \times 240$ screen. This is accomplished by writing RGB16 data to the \textsl{/dev/fb0} pipe provided by Linux. A custom-made library built specifically for CBCJVM gives you helper classes such as pixmaps (Pixel Buffers) with simple drawing functions and Image data types. The frame buffer is also simulated on the computer, allowing you to test your drawing code directly in the simulator. You can find more details about CBCJVM's frame buffer library in \texttt{cbccore.display} package.
+One of the more unique features of CBCJVM is the ability to draw to the CBC's $320 \times 240$ screen. This is accomplished by writing RGB16 data to the \textsl{/dev/fb0} pipe provided by Linux. A custom-made library built specifically for CBCJVM gives you helper classes such as pixmaps (Pixel Buffers) with drawing functions and Image data types. The frame buffer is also simulated on the computer, allowing you to test your drawing code directly in the simulator. You can find more details about CBCJVM's frame buffer library in \texttt{cbccore.display} package.
 
 
 
@@ -118,15 +118,17 @@ A command-line based version the network download tool is available. This tool i
 
 
 \pagebreak
-\section{Setup}
+\section{Usage}
 
-\subsection{Background Information}
+\subsection{Setup}
 
-Currently, the only supported platform is Ubuntu Linux. The instructions are untested with other distros, but they should work with slight modifications (eg.\ \texttt{yum} on RedHat/CentOS/Fedora instead of \texttt{apt-get}, and equivalent package names). On MacOS X Java 6 is poorly supported, and may or may not run on your machine\urlfootnote{http://java.dzone.com/news/java-6-mac-worsest-release-eve}. You might be better off trying to modify CBCJVM to work under Java 5 or using a virtual machine to run Ubuntu on top of your machine for builds (we recommend the free VirtualBox\urlfootnote{http://www.virtualbox.org/}). On Windows, everything should work, except for the few bash-based build scripts (the build process is mainly Ant and Maven based). Windows support is a priority, and should be an easy project for anyone who wishes to take on the task.
+\subsubsection{Background Information}
+
+It is strongly recommended you use CBCJVM on a POSIX compliant operating system such as Linux or Mac OS X. On Windows, everything should work, except for the few bash-based build scripts (the build process is mainly Ant and Maven based). Complete Windows support is a priority, and should be an easy project for anyone who wishes to take on the task.
 
 \textbf{Warning: } Build instructions may change over time. Therefore, it is always a good idea to consult the CBCJVM wiki\urlfootnote{http://wiki.github.com/catron/CBCJVM/installsetup} for the latest information.
 
-\subsection{Ubuntu Setup}
+\subsubsection{Ubuntu Setup}
 
 All of these commands, unless otherwise specified, are to be executed in a bash (terminal) environment. On a fresh Ubuntu install, that would be found under the top left ``Applications" menu, ``Accessories", ``Terminal". If a command asks for your password, it is referring to your root (administrative) password. If you have no idea what this means, please contact your system administrator.
 \begin{enumerate}
@@ -162,9 +164,32 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
 \item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
 \end{enumerate}
 
+\subsubsection{Mac OS X Setup}
 
+You will need to download and install MacPorts\urlfootnote{http://www.macports.org/install.php} to follow the steps provided here. These steps should work on any version of OS X, but have only been tested on Snow Leopard (10.6).
+\begin{enumerate}
+\item Install required tools for building CBCJVM
+      \code{\$ sudo port install ant git-core maven2}
+\item Navigate into the directory you want the repository folder to be downloaded to:
+      \code{\$ mkdir ~/Development; cd "~/Development"}
+      Pull (download) a copy of CBCJVM:\par
+      \begin{itemize}
+          \item Download the latest version (possibly unstable):
+                \code{\$ git clone git://github.com/catron/CBCJVM.git \\
+                      \$ cd CBCJVM}
+          \item Download a specific (``stable") version:
+                \code{\$ git clone git://github.com/catron/CBCJVM.git \\
+                      \$ cd CBCJVM \\
+                      \$ git tag -l \\
+                      \$ git checkout 10.6}
+                (\texttt{git tag -l} is optional, it will list all available versions. Replace `10.6' with whatever version number you desire.)
+      \end{itemize}
+      If you are unsure as to what version you should download, it is recommended that you consult someone on the Botball community chat\urlfootnote{http://community.botball.org/irc}.
+\item Compile CBCJVM:
+      \code{\$ sh BuildEverything.sh}
+\item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
+\end{enumerate}
 
-\section{Ending Notes}
 
 \subsection{Finding Documentation with JavaDoc}
 
@@ -175,41 +200,6 @@ After running the build script, a series of HTML pages will be generated in \tex
 \caption{\textit{The CBCJVM JavaDocs. The top left frame contains CBCJVM specific packages. The bottom left frame contains CBCJVM specific classes. The large frame is used to display information about the currently selected package or class.}}
 \end{figure}
 
-For regular users of Java, this should look familiar. That's because official JavaSE/ME/EE documentation is built using the same tool, JavaDoc. This generated documentation can be found on Sun's website\urlfootnote{http://java.sun.com/javase/6/docs/api}. All of the classes and methods found there should be available on the CBC, with the notable exception of AWT/Swing (the packages are actually there, but the CBC lacks a windowing server, making them useless), and a few other minor features not yet available in JamVM/GNU-Classpath (such as \texttt{System.nanoTime()}).
-
-
-
-\subsection{Finding Help on the Internet}
-
-This document cannot cover everything regarding CBCJVM or the technologies surrounding it. It only begins to scratch the surface. The Internet is an incredibly useful tool, but it pays to know where to look. This section attempts to address this, but above all, remember that Google is your friend.
-
-
-
-\subsubsection{General Programming and Java Specific Help}
-
-In addition the the previously mentioned JavaDocs\urlfootnote{http://java.sun.com/javase/6/docs/api}, there exist a number of web sites that can help you locate general information on programming, theory and practice. A few of the best resources are listed here:
-\begin{itemize}
-\item \url{http://en.wikibooks.org/wiki/Java_Programming}\\
-      Wikipedia also contains various programming articles, all of great quality. The are numerous Wikipedia articles on Programming Theory.
-\item \url{http://www.stackoverflow.com}\\
-      A question-and-answer website for all types and kinds of programming. Search before asking a question. Registration \textit{(free)} is required to ask questions.
-\end{itemize}
-
-
-
-\subsubsection{CBCJVM and Botball Specific Help}
-
-\begin{itemize}
-\item \url{http://community.botball.org}\\
-      As if this one hasn't been plugged enough. Features a question-and-answer style forum. Registration \textit{(free)} is required to ask questions.
-\item \url{irc.mintirc.net} \texttt{{\#}botball}\\
-      Pull up your favorite IRC client and join. Real-time community chat. Due to the limited number of CBCJVM users at the moment, people living in countries other than the US with different timezones may have trouble finding someone they can chat with. Registration \textit{(free)} is not required, although suggested.
-\item \url{http://wiki.github.com/catron/CBCJVM}\\
-      The official repository for all CBCJVM-specific information.
-\item \url{http://github.com/catron/CBCJVM/issues}\\
-      If you find a bug in CBCJVM (which admittedly, in its early state, is not hard to do), or have a feature request, this is the place to report it/suggest it. Registration \textit{(free)} is required to report questions.
-\end{itemize}
-
-
+For regular users of Java, this should look familiar. That's because official JavaSE/ME/EE documentation is built using the same tool, JavaDoc. This generated documentation can be found on Oracle's website\urlfootnote{http://java.sun.com/javase/6/docs/api}. All of the classes and methods found there should be available on the CBC, with the notable exception of AWT/Swing (the packages are actually there, but the CBC lacks a windowing server, making them useless), and a few other minor features not yet available in JamVM/GNU-Classpath (such as \texttt{System.nanoTime()}).
 
 \end{document}
