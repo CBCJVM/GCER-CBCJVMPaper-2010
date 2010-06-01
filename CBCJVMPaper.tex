@@ -16,20 +16,28 @@
 \newcommand{\authorInfo}[1]{\gdef\authInfo{#1}}
 
 \title{CBCJVM: Applications of the Java Virtual Machine with Robotics}
-\author{Braden McDorman \textit{(beta/catron)}, Benjamin Woodruff \textit{(pipeep)}, Akshay Joshi \textit{(axyjo)}, Jonathan Frias \textit{(freakinjonathan)}}
-\authorInfo{Norman High School \texttt{braden@betabot.org}, Fletcher High School \texttt{odetopi.e@gmail.com}, Unknown School in Qatar \texttt{me@akshayjoshi.com}, Robert E.~Lee High \texttt{freakinjonathan@gmail.com}}
+
+\author{Braden McDorman \textit{(beta/catron)}\\
+Benjamin Woodruff \textit{(pipeep)}\\
+Akshay Joshi \textit{(axyjo)}\\
+Jonathan Frias \textit{(freakinjonathan)}}
+
+\authorInfo{Norman High School \texttt{braden@betabot.org}\\
+Fletcher High School \texttt{odetopi.e@gmail.com}\\
+American Community School of Abu Dhabi \texttt{me@akshayjoshi.com}\\
+Robert E.~Lee High \texttt{freakinjonathan@gmail.com}}
 %we should clean up the way the author list is formated
 
 \begin{document}
 
 \makeatletter
-\begin{flushleft}\begin{small}
+\noindent\begin{minipage}[l]{.8\textwidth}\begin{flushleft}\begin{small}
 \textbf{\@title}\vspace{.75em}
 
 \@author\vspace{.5em}
 
 \authInfo
-\end{small}\end{flushleft}\vspace{.25in}
+\end{small}\end{flushleft}\end{minipage}\vspace{.25in}
 \begin{center}
 \begin{Large}
 \textbf{\@title}
@@ -182,7 +190,7 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
       If you are unsure as to what version you should download, it is recommended that you consult someone on the Botball community chat\urlfootnote{http://community.botball.org/irc}.
 \item Compile CBCJVM:
       \code{\$ sh BuildEverything.sh}
-\item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
+\item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/\-installer/\-install}.
 \end{enumerate}
 
 
@@ -213,7 +221,7 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
       If you are unsure as to what version you should download, it is recommended that you consult someone on the Botball community chat\urlfootnote{http://community.botball.org/irc}.
 \item Compile CBCJVM:
       \code{\$ sh BuildEverything.sh}
-\item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/installer/install}.
+\item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/\-installer/\-install}.
 \end{enumerate}
 
 
@@ -248,14 +256,14 @@ After compiling CBCJVM on your computer, you must setup CBCJVM on all the CBCs y
 
 \subsection{Finding Documentation with JavaDoc}
 
-After running the build script, a series of HTML pages will be generated in \texttt{CBCJVM/cbc/CBCJVM/doc}. You can open the file \texttt{index.html} from that directory with your favorite web-browser. This documentation is automatically generated from the CBCJVM source code, and is rebuilt with each execution of the build script.
+After running the build script, a series of HTML pages will be generated in \texttt{CBCJVM/\-cbc/\-CBCJVM/\-doc}. You can open the file \texttt{index.html} from that directory with your favorite web-browser. This documentation is automatically generated from the CBCJVM source code, and is rebuilt with each execution of the build script.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{javadocs.png}
 \caption{\textit{The CBCJVM JavaDocs. The top left frame contains CBCJVM specific packages. The bottom left frame contains CBCJVM specific classes. The large frame is used to display information about the currently selected package or class.}}
 \end{figure}
 
-For regular users of Java, this should look familiar. That's because official JavaSE/ME/EE documentation is built using the same tool, JavaDoc. This generated documentation can be found on Sun's website\urlfootnote{http://java.sun.com/javase/6/docs/api}. All of the classes and methods found there should be available on the CBC, with the notable exception of AWT/Swing (the packages are actually there, but the CBC lacks a windowing server, making them useless), and a few other minor features not yet available in JamVM/GNU-Classpath (such as \texttt{System.nanoTime()}).
+For regular users of Java, this should look familiar. That's because official JavaSE/\-ME/\-EE documentation is built using the same tool, JavaDoc. This generated documentation can be found on Sun's website\urlfootnote{http://java.sun.com/javase/6/docs/api}. All of the classes and methods found there should be available on the CBC, with the notable exception of AWT/\-Swing (the packages are actually there, but the CBC lacks a windowing server, making them useless), and a few other minor features not yet available in JamVM/\-GNU-Classpath (such as \texttt{System.\-nanoTime()}).
 
 
 
