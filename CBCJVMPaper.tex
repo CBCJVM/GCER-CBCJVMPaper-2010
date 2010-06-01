@@ -115,7 +115,7 @@ One of the more unique features of CBCJVM is the ability to draw to the CBC's $3
 
 \subsection{Movement Library}
 
-Never again will you have to write your own movement library CBCJVM includes an extensible Object-Oriented library. Its plug-in based architecture allows easy adoption for any piece of hardware; motor based, or create based; a simulator plug-in is even in development, meaning that you will be able to have a KISS-C style simulation system that can be used with any JVM language. By making all your movements through this library, you can take advantage of features such as position tracking.
+Never again will you have to write your own movement library CBCJVM includes an extensible Object-Oriented library. Its plug-in based architecture allows easy adoption for any piece of hardware; motor based, or create based; a simulator plug-in is even in development, meaning that you will be able to have a KISS-C style simulation system that can be used with any JVM language. By making all your movements through this library, you can take advantage of features such as position tracking. The movement library can be found in \texttt{cbccore.movement}, and is well documented through the CBCJVM JavaDoc files, mentioned in the ``Finding Documentation with JavaDoc" section.
 
 
 
@@ -250,15 +250,32 @@ After compiling CBCJVM on your computer, you must setup CBCJVM on all the CBCs y
 \item Delete everything copied to the flash drive.
 \end{enumerate}
 
-\section{Future - Before or After Ending Notes?}
 
-Try and finish these before paper is due...
-\subsection{Semisim}
-
-\subsection{GV}
 
 \pagebreak
 \section{Ending Notes}
+
+\subsection{Tomorrow}
+
+Tomorrow! Tomorrow! / I love ya Tomorrow! / You're always / A day / A way!\footnote{Song taken from Annie (the musical). Lyrics were written by Martin Charnin. We believe that the limited use combined with the commentary use of this snippet of lyrics qualifies under ``Fair Use" law.}
+
+\subsubsection{SemiSim}
+
+CBCJVM currently has a simulator, which is especially useful since you can use any JVM debugger of your choice. SemiSim would be a continuation of the Simulator, but all motor and servo commands (from \texttt{cbccore.low}) would be forwarded to a CBC over network. That way, you have the best of both worlds\ldots You can debug your program using a full debugging tool, and execute it on the CBC seamlessly.
+
+
+
+\subsubsection{Google Voice Integration}
+
+Google Voice connectivity would allow a CBC to send and receive SMS (text) messages via WiFi, allowing for some interesting design ideas. This would most likely be accomplished with Google Voice Java\urlfootnote{http://code.google.com/p/google-voice-java/}. This could be integrated into CBCJVM directly, allowing a background daemon to handle requests you register with the manager.
+
+Imagine running your robot by simply sending a SMS message to it, or being able to quickly gather information from your CBC while it is still running. But that would only be the start. There could be all sort of unforeseen possibilities for this technology. This doesn't necessarily have to be done through Google Voice, it could be done as an IRC or Jabber (a free and open IM protocol), or better yet it could be done in a pluggable fashion, allowing people to use any web technology of their choice to communicate with it. Imagine a Twittering robot\ldots
+
+\textit{``Picked up the red tribbles! I'm going to head to the basket now!"}
+
+\textit{``The Nease iRobot Create robot is following me @FletcherHighLegoBot, why aren't you?"}
+
+
 
 \subsection{Finding Documentation with JavaDoc}
 
