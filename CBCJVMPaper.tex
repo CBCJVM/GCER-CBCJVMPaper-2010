@@ -1,26 +1,41 @@
 %It is recommended that you use pdflatex for compilation
 
-\documentclass[10pt,letterpaper]{article}
+\documentclass[12pt,letterpaper]{article}
 
 \usepackage[pdftex]{graphicx}
 \usepackage{float}
 \usepackage{ulem}
-%\usepackage{fullpage} % reduces margins if uncommented
-
+\usepackage[in]{fullpage} % reduces margins if uncommented
+%Why does KIPR require use to use 1in paper?
 \usepackage{hyperref}
+
+\pagestyle{empty}
+
 \newcommand{\urlfootnote}[1]{\footnote{\url{#1}}}
 \newcommand{\code}[1]{\par\texttt{#1}\par}
+\newcommand{\authorInfo}[1]{\gdef\authInfo{#1}}
 
-\title{\textbf{CBCJVM}\\Applications of the Java Virtual Machine with Robotics}
-\author{Braden McDorman \texttt{(beta or catron, braden@betabot.org)}\\
-Benjamin Woodruff \texttt{(pipeep, odetopi.e@gmail.com)}\\
-Akshay Joshi \texttt{(axyjo, me@akshayjoshi.com)}\\
-Jonathan Frias \texttt{(freakinjonathan, freakinjonathan@gmail.com)}}
+\title{CBCJVM: Applications of the Java Virtual Machine with Robotics}
+\author{Braden McDorman (beta/catron), Benjamin Woodruff (pipeep), Akshay Joshi (axyjo), Jonathan Frias (freakinjonathan)}
+\authorInfo{Respectively: Norman High School \texttt{braden@betabot.org}, Fletcher High School \texttt{odetopi.e@gmail.com}, Unknown School in Qatar me@akshayjoshi.com, Robert E.~Lee High \texttt{freakinjonathan@gmail.com}}
 %we should clean up the way the author list is formated
 
 \begin{document}
 
-\maketitle
+\makeatletter
+\begin{flushleft}\begin{small}
+\@title\vspace{.5em}
+
+\@author\vspace{.5em}
+
+\authInfo
+\end{small}\end{flushleft}\vspace{.25in}
+\begin{center}
+\begin{Large}
+\textbf{\@title}
+\end{Large}
+\end{center}
+\makeatother
 
 \section{Concept and Background}
 
