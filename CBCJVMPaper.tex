@@ -42,6 +42,7 @@ Robert E.~Lee High \texttt{freakinjonathan@gmail.com}}
 \begin{Large}
 \textbf{\@title}
 \end{Large}
+\par\includegraphics[height=.5in]{CBCJava.png}
 \end{center}
 \makeatother
 
@@ -115,8 +116,37 @@ One of the more unique features of CBCJVM is the ability to draw to the CBC's $3
 
 \subsection{Movement Library}
 
-Never again will you have to write your own movement library CBCJVM includes an extensible Object-Oriented library. Its plug-in based architecture allows easy adoption for any piece of hardware; motor based, or create based; a simulator plug-in is even in development, meaning that you will be able to have a KISS-C style simulation system that can be used with any JVM language. By making all your movements through this library, you can take advantage of features such as position tracking. The movement library can be found in \texttt{cbccore.movement}, and is well documented through the CBCJVM JavaDoc files, mentioned in the ``Finding Documentation with JavaDoc" section.
+Never again will you have to write your own movement library CBCJVM includes an extensible Object-Oriented library. Its plug-in based architecture allows easy adoption for any piece of hardware; motor based, or create based; a simulator plug-in is even in development, meaning that you will be able to have a KISS-C style simulation system that can be used with any JVM language. Plug-ins are essentially stubs, telling the DriveTrain class (the center of the movement library) what functions to call for a specific piece of hardware. By making all your movements through this library, you can take advantage of features such as position tracking. The movement library can be found in \texttt{cbccore.movement}.
 
+\subsubsection{Example Code}
+\begin{verbatim}import cbccore.movement.DriveTrain;
+import cbccore.movement.plugins.create.CreateMovementPlugin;
+
+public class MovementLibraryExample {
+    public static void main(String[] args) {
+        //create a new DriveTrain instance:
+        DriveTrain dt = new DriveTrain(
+            new CreateMovementPlugin(
+                    //Wrap a plugin in the DriveTrain class
+                1.0 //Efficiency, a 'fudge' factor
+                , true //"Full" mode, as defined by KISS-C
+            )
+        );
+        /* You are free to extend the DriveTrain class as you wish,
+         * using any "plug-in" you wish with the extended version.
+         */
+        
+        //move one meter forward, half speed:
+        dt.moveCm(100.0, 0.5*dt.getMaxCmps());
+        
+        //rotate 90 degrees, counter-clock-wise, half speed:
+        dt.rotateDegrees(90.0, 0.5*dt.getMaxDegreesPerSec());
+        
+        System.out.println(dt.getPosition().getAngleDegrees());
+        //will print out 90.0
+    }
+}
+\end{verbatim}
 
 
 \subsection{Configuration System}
