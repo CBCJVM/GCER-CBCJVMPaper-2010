@@ -1,23 +1,35 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 
-\bibitem[\protect\astroncite{pul}{}]{pullRequest}
+\bibitem{gnuClasspath}
+{GNU Classpath --- GNU Project --- Free Software Foundation (FSF)}.
+\newblock \url{http://www.gnu.org/software/classpath}, 07 2009.
 
+\bibitem{forking}
+{Help.GitHub --- Forking a project}.
+\newblock \url{http://help.github.com/forking}, 2010.
 
-\bibitem[\protect\astroncite{jam}{}]{jamVM}
-
-
-\bibitem[\protect\astroncite{for}{}]{forking}
-Github forking guide.
-
-\bibitem[\protect\astroncite{KIPR}{2010}]{canThereBeCpp}
-KIPR (2010).
-\newblock Can there be kiss-c++ rather than kiss-c?
+\bibitem{canThereBeCpp}
+Logan Cox.
+\newblock {Can there be a KISS-C++ rather than KISS-C? \textpipe { }Botball
+  Community}.
 \newblock
   \url{http://community.botball.org/forum/miscellaneous/suggestions-and-bugs/c%
-an-there-be-kiss-c-rather-kiss-c}.
+an-there-be-kiss-c-rather-kiss-c#comment-422}, 2010.
 
-\bibitem[\protect\astroncite{Stallman}{2007}]{gpl3}
-Stallman, R. (2007).
-\newblock Gpl.
+\bibitem{pullRequest}
+Tom Preston-Werner et~al.
+\newblock {Help.GitHub --- Forking a project}.
+\newblock \url{http://github.com/guides/pull-requests}, 2010.
+
+\bibitem{jamVM}
+{Robert Lougher}.
+\newblock {JamVM --- A compact Java Virtual Machine}.
+\newblock \url{http://jamvm.sourceforge.net}, 01 2010.
+
+\bibitem{gpl3}
+Richard Stallman et~al.
+\newblock {The GNU General Public License --- GNU Project --- Free Software
+  Foundation (FSF)}.
+\newblock \url{http://www.gnu.org/licenses/gpl-3.0.html}, 06 2007.
 
 \end{thebibliography}
