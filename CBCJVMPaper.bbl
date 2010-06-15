@@ -1,0 +1,23 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\astroncite{pul}{}]{pullRequest}
+
+
+\bibitem[\protect\astroncite{jam}{}]{jamVM}
+
+
+\bibitem[\protect\astroncite{for}{}]{forking}
+Github forking guide.
+
+\bibitem[\protect\astroncite{KIPR}{2010}]{canThereBeCpp}
+KIPR (2010).
+\newblock Can there be kiss-c++ rather than kiss-c?
+\newblock
+  \url{http://community.botball.org/forum/miscellaneous/suggestions-and-bugs/c%
+an-there-be-kiss-c-rather-kiss-c}.
+
+\bibitem[\protect\astroncite{Stallman}{2007}]{gpl3}
+Stallman, R. (2007).
+\newblock Gpl.
+
+\end{thebibliography}
