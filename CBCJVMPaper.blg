@@ -4,45 +4,47 @@ The style file: plain.bst
 Database file #1: CBCJVMPaper.bib.bib
 Warning--to sort, need author or key in forking
 Warning--to sort, need author or key in gnuClasspath
-You've used 6 entries,
+Warning--to sort, need author or key in eclipse
+Warning--to sort, need author or key in communityIrc
+You've used 10 entries,
             2118 wiz_defined-function locations,
-            533 strings with 4989 characters,
-and the built_in function-call counts, 1250 in all, are:
-= -- 118
-> -- 42
+            553 strings with 5798 characters,
+and the built_in function-call counts, 2061 in all, are:
+= -- 195
+> -- 69
 < -- 0
-+ -- 18
-- -- 12
-* -- 50
-:= -- 197
-add.period$ -- 16
-call.type$ -- 6
-change.case$ -- 22
++ -- 30
+- -- 20
+* -- 83
+:= -- 317
+add.period$ -- 26
+call.type$ -- 10
+change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 8
-duplicate$ -- 42
-empty$ -- 135
-format.name$ -- 12
-if$ -- 281
+cite$ -- 14
+duplicate$ -- 70
+empty$ -- 225
+format.name$ -- 20
+if$ -- 467
 int.to.chr$ -- 0
-int.to.str$ -- 6
+int.to.str$ -- 10
 missing$ -- 0
-newline$ -- 31
-num.names$ -- 8
-pop$ -- 48
+newline$ -- 49
+num.names$ -- 12
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 28
 quote$ -- 0
-skip$ -- 46
+skip$ -- 73
 stack$ -- 0
-substring$ -- 30
-swap$ -- 6
+substring$ -- 50
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
-warning$ -- 2
-while$ -- 8
-width$ -- 7
-write$ -- 58
-(There were 2 warnings)
+type$ -- 40
+warning$ -- 4
+while$ -- 12
+width$ -- 12
+write$ -- 94
+(There were 4 warnings)

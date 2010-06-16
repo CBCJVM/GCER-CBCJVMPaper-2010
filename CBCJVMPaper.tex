@@ -172,7 +172,7 @@ public class MovementLibraryExample {
 
 \subsection{Eclipse Integration}
 
-Ease of use being of the utmost importance to our team, CBCJVM's Eclipse\urlfootnote{} Plug-in allows you to download to your CBC via a network or via a flash drive. Eclipse's built in documentation, code completion, and automatic build system allow for you to develop code even faster. Eclipse also provides thousands of plug-ins for things such as version control with git and svn. When downloading over the network there is no need to recompile your program, just simply press run again.
+Ease of use being of the utmost importance to our team, CBCJVM's Eclipse\cite{eclipse} Plug-in allows you to download to your CBC via a network or via a flash drive. Eclipse's built in documentation, code completion, and automatic build system allow for you to develop code even faster. Eclipse also provides thousands of plug-ins for things such as version control with git and svn. When downloading over the network there is no need to recompile your program, just simply press run again.
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{eclipse.png}
@@ -188,7 +188,7 @@ There is no requirement to use Eclipse, and it is possible to use the features p
 
 \subsubsection{Networked Downloads}
 
-A command-line based version the network download tool is available. This tool is built automatically along with the rest of CBCJVM (see setup section for more information). This tool can be found in \texttt{CBCJVM/\-consoleDownload/\-bin/\-Download.\-class}. It can be executed by navigating into the \texttt{CBCJVM/\-consoleDownload/\-bin/} directory with a terminal/command-line, and running the command: \code{java Download <ip-address> <target-directory>} Replacing \texttt{<ip-address>} with the CBC's ip, and \texttt{<target-directory>} with the directory you plan to download. More information on finding the CBC's ip address and networking with the CBC can be found in the 2009 Nease-Norman CBC hacking paper.\urlfootnote{http://bit.ly/nn-cbc09}.
+A command-line based version the network download tool is available. This tool is built automatically along with the rest of CBCJVM (see setup section for more information). This tool can be found in \texttt{CBCJVM/\-consoleDownload/\-bin/\-Download.\-class}. It can be executed by navigating into the \texttt{CBCJVM/\-consoleDownload/\-bin/} directory with a terminal/command-line, and running the command: \code{java Download <ip-address> <target-directory>} Replacing \texttt{<ip-address>} with the CBC's ip, and \texttt{<target-directory>} with the directory you plan to download. More information on finding the CBC's ip address and networking with the CBC can be found in the 2009 Nease-Norman CBC hacking paper.\cite{nnMod}.
 
 
 
@@ -199,7 +199,7 @@ A command-line based version the network download tool is available. This tool i
 
 It is strongly recommended you use CBCJVM on a POSIX compliant operating system such as Linux or Mac OS X. On Windows, everything should work, except for the few bash-based build scripts (the build process is mainly Ant and Maven based). Complete Windows support is a priority, and should be an easy project for anyone who wishes to take on the task.
 
-\textbf{Warning:} Build instructions may change over time. Therefore, it is always a good idea to consult the CBCJVM wiki\urlfootnote{http://wiki.github.com/catron/CBCJVM/installsetup} for the latest information.
+\textbf{Warning:} Build instructions may change over time. Therefore, it is always a good idea to consult the CBCJVM wiki\cite{setupWiki} for the latest information.
 
 \subsection{Ubuntu Setup}
 
@@ -232,7 +232,7 @@ All of these commands, unless otherwise specified, are to be executed in a bash 
                       \$ git checkout 10.6}
                 (\texttt{git tag -l} is optional, it will list all available versions. Replace `10.6' with whatever version number you desire.)
       \end{itemize}
-      If you are unsure as to what version you should download, it is recommended that you consult someone on the Botball community chat\urlfootnote{http://community.botball.org/irc}.
+      If you are unsure as to what version you should download, it is recommended that you consult someone on the Botball community chat\cite{communityIrc}.
 \item Compile CBCJVM:
       \code{\$ sh BuildEverything.sh}
 \item The CBC installer and corresponding README file can now be found in \texttt{CBCJVM/\-installer/\-install}.

@@ -1,8 +1,16 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{gnuClasspath}
 {GNU Classpath --- GNU Project --- Free Software Foundation (FSF)}.
 \newblock \url{http://www.gnu.org/software/classpath}, 07 2009.
+
+\bibitem{communityIrc}
+Botballer's chat \textpipe { }botball community.
+\newblock \url{http://community.botball.org/botballers-chat}, 2010.
+
+\bibitem{eclipse}
+{Eclipse.org home}.
+\newblock \url{http://www.eclipse.org}, 2010.
 
 \bibitem{forking}
 {Help.GitHub --- Forking a project}.
@@ -21,6 +29,15 @@ Tom Preston-Werner et~al.
 \newblock {Help.GitHub --- Forking a project}.
 \newblock \url{http://github.com/guides/pull-requests}, 2010.
 
+\bibitem{nnMod}
+Jeremy Rand, Matt Thompson, and Braden McDorman.
+\newblock Hacking the cbc botball controller: Because it wouldn’t be a
+  botball controller if it couldn’t be hacked \textpipe { }botball community.
+\newblock \url{http://bit.ly/nn-cbc09}
+  \url{http://community.botball.org/articles/hacking-cbc-botball-controller-be%
+cause-it-wouldn\%E2\%80\%99t-be-botball-controller-if-it-couldn\%E2\%80\%99t-b%
+e-}, 2009.
+
 \bibitem{jamVM}
 {Robert Lougher}.
 \newblock {JamVM --- A compact Java Virtual Machine}.
@@ -31,5 +48,10 @@ Richard Stallman et~al.
 \newblock {The GNU General Public License --- GNU Project --- Free Software
   Foundation (FSF)}.
 \newblock \url{http://www.gnu.org/licenses/gpl-3.0.html}, 06 2007.
+
+\bibitem{setupWiki}
+Benjamin Woodruff.
+\newblock Install/setup --- cbcjvm --- github.
+\newblock \url{http://wiki.github.com/catron/CBCJVM/installsetup}, 2010.
 
 \end{thebibliography}
